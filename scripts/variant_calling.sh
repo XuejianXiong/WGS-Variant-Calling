@@ -46,7 +46,7 @@ wget -P ~/Desktop/code/WGS-Variant-Calling/supporting_files/hg38/ \
 
 
 # Setup directories
-my_path="/Users/xiongx11/Desktop/code/WGS-Variant-Calling"
+my_path="~/Desktop/code/WGS-Variant-Calling"
 ref="${my_path}/supporting_files/hg38/hg38.fa"
 known_sites="${my_path}/supporting_files/hg38/Homo_sapiens_assembly38.dbsnp138.vcf"
 aligned_reads="${my_path}/aligned_reads"

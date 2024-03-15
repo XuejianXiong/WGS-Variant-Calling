@@ -1,0 +1,2 @@
+Sample	Picard: InsertSizeMetrics_mqc-generalstats-picard_insertsizemetrics-summed_median	Picard: InsertSizeMetrics_mqc-generalstats-picard_insertsizemetrics-summed_mean
+SRR062634_sorted_dedup_bqsr_reads	183	179.373841

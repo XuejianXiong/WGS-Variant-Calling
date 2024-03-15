@@ -1,0 +1,27 @@
+[2024-03-14 18:48:39,334] multiqc                                            [DEBUG  ]  This is MultiQC v1.22.dev0
+[2024-03-14 18:48:39,334] multiqc                                            [DEBUG  ]  Command used: /opt/homebrew/bin/multiqc .
+[2024-03-14 18:48:39,821] multiqc                                            [DEBUG  ]  Latest MultiQC version is v1.21, released 2024-02-28
+[2024-03-14 18:48:39,822] multiqc                                            [DEBUG  ]  Working dir : /Users/xiongx11/Desktop/code/WGS-Variant-Calling/aligned_reads
+[2024-03-14 18:48:39,822] multiqc                                            [DEBUG  ]  Template    : default
+[2024-03-14 18:48:39,822] multiqc                                            [DEBUG  ]  Running Python 3.11.7 (main, Dec  4 2023, 18:10:11) [Clang 15.0.0 (clang-1500.1.0.2.5)]
+[2024-03-14 18:48:39,824] multiqc                                            [DEBUG  ]  Analysing modules: custom_content, ccs, ngsderive, purple, conpair, isoseq, lima, peddy, somalier, methylqa, mosdepth, phantompeakqualtools, qualimap, bamdst, preseq, hifiasm, quast, qorts, rna_seqc, rockhopper, rsem, rseqc, busco, bustools, goleft_indexcov, gffcompare, disambiguate, supernova, deeptools, sargasso, verifybamid, mirtrace, happy, mirtop, sambamba, gopeaks, homer, hops, macs2, theta2, snpeff, gatk, htseq, bcftools, featureCounts, fgbio, dragen, dragen_fastqc, dedup, pbmarkdup, damageprofiler, mapdamage, biobambam2, jcvi, mtnucratio, picard, vep, bakta, prokka, qc3C, nanostat, samblaster, samtools, sexdeterrmine, seqera_cli, eigenstratdatabasetools, bamtools, jellyfish, vcftools, longranger, stacks, varscan2, snippy, umitools, truvari, megahit, bbmap, bismark, biscuit, diamond, hicexplorer, hicup, hicpro, salmon, kallisto, slamdunk, star, hisat2, tophat, bowtie2, bowtie1, cellranger, snpsplit, odgi, pangolin, nextclade, freyja, humid, kat, leehom, librarian, nonpareil, adapterremoval, bbduk, clipandmerge, cutadapt, flexbar, sourmash, kaiju, bracken, kraken, malt, motus, trimmomatic, sickle, skewer, sortmerna, biobloomtools, fastq_screen, afterqc, fastp, fastqc, filtlong, prinseqplusplus, pychopper, porechop, pycoqc, minionqc, anglerfish, multivcfanalyzer, clusterflow, checkqc, bcl2fastq, bclconvert, interop, ivar, flash, seqyclean, optitype, whatshap, spaceranger, xenome, xengsort, metaphlan, seqwho
+[2024-03-14 18:48:39,825] multiqc                                            [DEBUG  ]  Using temporary directory for creating report: /var/folders/5r/0y4dw2vn7pjfblxb2110x_9c0000gn/T/tmpsqjrqtkz
+[2024-03-14 18:48:39,829] multiqc                                            [INFO   ]  Search path : /Users/xiongx11/Desktop/code/WGS-Variant-Calling/aligned_reads
+[2024-03-14 18:48:39,869] multiqc                                            [DEBUG  ]  Summary of files that were skipped by the search: [skipped_module_specific_max_filesize: 15] // [skipped_no_match: 8] // [skipped_ignore_pattern: 7]
+[2024-03-14 18:48:39,884] multiqc                                            [DEBUG  ]  No samples found: custom_content
+[2024-03-14 18:48:39,888] multiqc.utils.util_functions                       [DEBUG  ]  Wrote data file multiqc_picard_AlignmentSummaryMetrics.txt
+[2024-03-14 18:48:39,914] multiqc.modules.picard.picard                      [INFO   ]  Found 1 AlignmentSummaryMetrics reports
+[2024-03-14 18:48:39,915] multiqc.utils.util_functions                       [DEBUG  ]  Wrote data file multiqc_picard_insertSize.txt
+[2024-03-14 18:48:39,917] multiqc.modules.picard.picard                      [INFO   ]  Found 1 InsertSizeMetrics reports
+[2024-03-14 18:48:39,917] multiqc.utils.util_functions                       [DEBUG  ]  Wrote data file picard_histogram.txt
+[2024-03-14 18:48:39,917] multiqc.utils.util_functions                       [DEBUG  ]  Wrote data file picard_histogram_1.txt
+[2024-03-14 18:48:39,917] multiqc.utils.util_functions                       [DEBUG  ]  Wrote data file picard_histogram_2.txt
+[2024-03-14 18:48:39,918] multiqc.utils.software_versions                    [DEBUG  ]  Reading software versions from config.software_versions
+[2024-03-14 18:48:39,922] multiqc.utils.util_functions                       [DEBUG  ]  Wrote data file multiqc_general_stats.txt
+[2024-03-14 18:48:39,922] multiqc                                            [DEBUG  ]  Compressing plot data
+[2024-03-14 18:48:39,939] multiqc.utils.util_functions                       [DEBUG  ]  Wrote data file multiqc_data.json
+[2024-03-14 18:48:39,940] multiqc                                            [INFO   ]  Report      : multiqc_report.html
+[2024-03-14 18:48:39,940] multiqc                                            [INFO   ]  Data        : multiqc_data
+[2024-03-14 18:48:39,940] multiqc                                            [DEBUG  ]  Moving data file from '/var/folders/5r/0y4dw2vn7pjfblxb2110x_9c0000gn/T/tmpsqjrqtkz/multiqc_data' to '/Users/xiongx11/Desktop/code/WGS-Variant-Calling/aligned_reads/multiqc_data'
+[2024-03-14 18:48:39,942] multiqc                                            [DEBUG  ]  Full report path: /Users/xiongx11/Desktop/code/WGS-Variant-Calling/aligned_reads/multiqc_report.html
+[2024-03-14 18:48:40,017] multiqc                                            [INFO   ]  MultiQC complete

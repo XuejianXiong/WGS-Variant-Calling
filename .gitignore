@@ -1,2 +1,11 @@
 **/.DS_Store
 /__pycache__/
+/aligned_reads/*.bai
+/aligned_reads/*.bam
+/aligned_reads/*.sbi
+/aligned_reads/*.sam
+/reads/*.zip
+/reads/*.gz
+/results/
+/supporting_files/
+

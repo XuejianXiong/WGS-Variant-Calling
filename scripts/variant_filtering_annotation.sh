@@ -4,17 +4,18 @@
 # This script is for demonstration purposes only
 
 
-# directories
-ref="/Users/kr/Desktop/demo/supporting_files/hg38/hg38.fa"
-results="/Users/kr/Desktop/demo/variant_calling/results"
+# Setup directories
+my_path="/Users/xiongx11/Desktop/code/WGS-Variant-Calling"
+ref="${my_path}/supporting_files/hg38/hg38.fa"
+results="${my_path}/results"
 
-if false
-then
 
 # -------------------
 # Filter Variants - GATK4
 # -------------------
 
+if false
+then
 # Filter SNPs
 gatk VariantFiltration \
 	-R ${ref} \
@@ -47,9 +48,6 @@ gatk VariantFiltration \
 	-genotype-filter-name "GQ_filter"
 
 
-
-
-
 # Select Variants that PASS filters
 gatk SelectVariants \
 	--exclude-filtered \
@@ -64,10 +62,12 @@ gatk SelectVariants \
 
 
 # to exclude variants that failed genotype filters
-cat analysis-ready-snps.vcf|grep -v -E "DP_filter|GQ_filter" > analysis-ready-snps-filteredGT.vcf
-cat analysis-ready-indels.vcf| grep -v -E "DP_filter|GQ_filter" > analysis-ready-indels-filteredGT.vcf
+cat ${results}/analysis-ready-snps.vcf|grep -v -E "DP_filter|GQ_filter" \
+	> ${results}/analysis-ready-snps-filteredGT.vcf
 
-
+cat ${results}/analysis-ready-indels.vcf| grep -v -E "DP_filter|GQ_filter" \
+	> ${results}/analysis-ready-indels-filteredGT.vcf
+fi
 
 
 # -------------------
@@ -83,6 +83,8 @@ gatk Funcotator \
 	--output ${results}/analysis-ready-snps-filteredGT-functotated.vcf \
 	--output-file-format VCF
 
+if false
+then
 gatk Funcotator \
 	--variant ${results}/analysis-ready-indels-filteredGT.vcf \
 	--reference ${ref} \
@@ -92,7 +94,7 @@ gatk Funcotator \
 	--output-file-format VCF
 
 
-fi
+
 
 # Extract fields from a VCF file to a tab-delimited table
 
@@ -100,7 +102,7 @@ gatk VariantsToTable \
 	-V ${results}/analysis-ready-snps-filteredGT-functotated.vcf -F AC -F AN -F DP -F AF -F FUNCOTATION \
 	-O ${results}/output_snps.table
 
-
+fi
 
 
 

@@ -6,6 +6,8 @@
 /aligned_reads/*.sam
 /reads/*.zip
 /reads/*.gz
-/results/
+/results/*.vcf
+/results/*.idx
 /supporting_files/
+/tools/
 

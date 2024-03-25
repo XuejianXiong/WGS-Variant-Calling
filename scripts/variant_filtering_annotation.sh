@@ -5,17 +5,17 @@
 
 
 # Setup directories
-my_path="/Users/xiongx11/Desktop/code/WGS-Variant-Calling"
+my_path="/Users/myname/Desktop/code/WGS-Variant-Calling"
 ref="${my_path}/supporting_files/hg38/hg38.fa"
 results="${my_path}/results"
+tools="${my_path}/tools"
 
 
 # -------------------
 # Filter Variants - GATK4
 # -------------------
 
-if false
-then
+
 # Filter SNPs
 gatk VariantFiltration \
 	-R ${ref} \
@@ -62,47 +62,53 @@ gatk SelectVariants \
 
 
 # to exclude variants that failed genotype filters
+# There are FT in "GT:AD:DP:FT:GQ:PL" meaning failed genotype filters
 cat ${results}/analysis-ready-snps.vcf|grep -v -E "DP_filter|GQ_filter" \
 	> ${results}/analysis-ready-snps-filteredGT.vcf
 
 cat ${results}/analysis-ready-indels.vcf| grep -v -E "DP_filter|GQ_filter" \
 	> ${results}/analysis-ready-indels-filteredGT.vcf
-fi
+
 
 
 # -------------------
 # Annotate Variants - GATK4 Funcotator
 # -------------------
 
+# Download pre-packaged data source from Funcotator
+# only need to download once!
+cd tools
+gatk FuncotatorDataSourceDownloader --germline --validate-integrity \
+						--extract-after-download --hg38
+cd ../
+
+
+
 # Annotate using Funcotator
 gatk Funcotator \
 	--variant ${results}/analysis-ready-snps-filteredGT.vcf \
 	--reference ${ref} \
 	--ref-version hg38 \
-	--data-sources-path /Users/kr/Desktop/demo/tools/functotator_prepackaged_sources/funcotator/hg38/funcotator_dataSources.v1.7.20200521g \
+	--data-sources-path ${tools}/funcotator_dataSources.v1.8.hg38.20230908g \
 	--output ${results}/analysis-ready-snps-filteredGT-functotated.vcf \
 	--output-file-format VCF
 
-if false
-then
+
 gatk Funcotator \
 	--variant ${results}/analysis-ready-indels-filteredGT.vcf \
 	--reference ${ref} \
 	--ref-version hg38 \
-	--data-sources-path /Users/kr/Desktop/demo/tools/functotator_prepackaged_sources/funcotator/hg38/funcotator_dataSources.v1.7.20200521g \
+	--data-sources-path ${tools}/funcotator_dataSources.v1.8.hg38.20230908g \
 	--output ${results}/analysis-ready-indels-filteredGT-functotated.vcf \
 	--output-file-format VCF
 
 
 
-
 # Extract fields from a VCF file to a tab-delimited table
-
 gatk VariantsToTable \
 	-V ${results}/analysis-ready-snps-filteredGT-functotated.vcf -F AC -F AN -F DP -F AF -F FUNCOTATION \
 	-O ${results}/output_snps.table
 
-fi
 
 
 

@@ -5,7 +5,7 @@
 
 
 # Setup directories
-my_path="/Users/myname/Desktop/code/WGS-Variant-Calling"
+my_path="/Users/xiongx11/Desktop/code/WGS-Variant-Calling"
 ref="${my_path}/supporting_files/hg38/hg38.fa"
 results="${my_path}/results"
 tools="${my_path}/tools"
@@ -15,6 +15,8 @@ tools="${my_path}/tools"
 # Filter Variants - GATK4
 # -------------------
 
+if False
+then
 
 # Filter SNPs
 gatk VariantFiltration \
@@ -77,10 +79,10 @@ cat ${results}/analysis-ready-indels.vcf| grep -v -E "DP_filter|GQ_filter" \
 
 # Download pre-packaged data source from Funcotator
 # only need to download once!
-cd tools
-gatk FuncotatorDataSourceDownloader --germline --validate-integrity \
+#cd tools
+#gatk FuncotatorDataSourceDownloader --germline --validate-integrity \
 						--extract-after-download --hg38
-cd ../
+#cd ../
 
 
 
@@ -108,7 +110,15 @@ gatk Funcotator \
 gatk VariantsToTable \
 	-V ${results}/analysis-ready-snps-filteredGT-functotated.vcf -F AC -F AN -F DP -F AF -F FUNCOTATION \
 	-O ${results}/output_snps.table
+fi
 
 
+# Extract data from a VCF flie to a more meaningful tab-delimited table
+# Extract headers
+cat ${results}/analysis-ready-snps-filteredGT-functotated.vcf \
+	| grep " Funcotation fields are: " | sed 's/|/\t/g' > ${results}/output_curated_variants.txt
+
+# Extract info. of the gene "NBPF1" under the corresponding headers
+cat ${results}/output_snps.table | cut -f 5 | grep "NBPF1" | sed 's/|/\t/g' >> ${results}/output_curated_variants.txt
 
 

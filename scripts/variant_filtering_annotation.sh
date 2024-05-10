@@ -81,7 +81,7 @@ cat ${results}/analysis-ready-indels.vcf| grep -v -E "DP_filter|GQ_filter" \
 # only need to download once!
 #cd tools
 #gatk FuncotatorDataSourceDownloader --germline --validate-integrity \
-						--extract-after-download --hg38
+#						--extract-after-download --hg38
 #cd ../
 
 

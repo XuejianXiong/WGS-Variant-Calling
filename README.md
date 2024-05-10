@@ -5,6 +5,8 @@ This repotary is about WGS variant calling and annotation using GATK.
 
 1) Download pre-packaged data source from Funcotator
 
+cd tools/
+
 gatk FuncotatorDataSourceDownloader --germline --validate-integrity --extract-after-download --hg38
 
 

@@ -20,9 +20,13 @@ chmod +x variant_filtering_annotation.sh ./variant_filtering_annotation.sh
 
 
 3) Useful variant Data Sources:
+
 	GNOMAD
+
 	dbSNP
+
 	ClinVar
+	
 	COSMIC
 
 
